@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { WeatherService } from 'src/app/services/weather.service.service';
 @Component({
   selector: 'home',
@@ -11,8 +11,8 @@ export class HomeComponent implements OnInit {
 
   citiesOptions = null
   isOptionsModaOpen = false
-  currCityWether = null
-  currCity = null
+  currCityWether= null
+  currCity=null
 
   ngOnInit(): void {
     this.getCitiesOptions('')
@@ -26,14 +26,17 @@ export class HomeComponent implements OnInit {
 
   async getWeather() {
     const weather = await this.weatherService.getWeather()
+    console.log('weather:', weather)
     this.currCityWether = weather
-    console.log('this.currCityWether:', this.currCityWether)
   }
 
-  setCurrCity(city:any) {
-    this.currCity = city
+  setCurrCity(city: any) {
     this.weatherService.setCurrCity(city.Key)
     this.getWeather()
   }
+
+  // getCurrCity() {
+  //   return this.weatherService.getCurrCity()
+  // }
 
 }
