@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
   }
 
   setCurrCity(city: any) {
+    this.currCity = city
     this.weatherService.setCurrCity(city.Key)
     this.getWeather()
   }
