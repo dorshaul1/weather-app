@@ -1,0 +1,21 @@
+<section class="home-page flex column">
+    <div class="home-page-container flex column align-center">
+
+        <div class="search-city-container">
+            <input type="text" #searchCityInput class="search-city-input" placeholder="Search city"
+                (click)="this.isOptionsModaOpen = true" (input)="getCitiesOptions(searchCityInput.value)">
+            <div *ngIf="isOptionsModaOpen" class="screen-search" (click)="this.isOptionsModaOpen = false"></div>
+            <div *ngIf="citiesOptions" class="cities-options" [ngClass]="{'modal-open':isOptionsModaOpen}">
+                <h1 (click)="setCurrCity(city)" *ngFor="let city of citiesOptions">{{city.LocalizedName}}</h1>
+            </div>   
+        </div>
+
+        <div class="weather-title">
+            <h1 *ngIf="this.currCity">{{this.currCity.LocalizedName}}</h1>
+            <h1 *ngIf="!this.currCity">Holon</h1>
+        </div>
+
+        <weather-list [weather]="this.currCityWether "></weather-list>
+
+    </div>
+</section>

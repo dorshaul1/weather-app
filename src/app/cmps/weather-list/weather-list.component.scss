@@ -1,0 +1,19 @@
+.weather-list {
+    // width: 80%;
+    padding: 0 20px;
+    gap: 20px;
+    .weather {
+        // margin-top: 70px;
+        height: 400px;
+        background-color: rgba(255, 255, 255, 0.514);
+        .weather-image{
+            width: 90%;
+        }
+        .weather-information {
+            .weather-date {
+                font-size: 1rem;
+                width: 200px;
+            }
+        }
+    }
+}
